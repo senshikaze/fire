@@ -7,7 +7,7 @@
     let year = new Date().getFullYear();
     let maxYear = year + 200;
 
-    $: if ($total_assets | $target_year | $monthly_savings | $apr | $inflation) {
+    $: if ($total_assets || $target_year || $monthly_savings || $apr || $inflation) {
         let years = Math.max(($target_year - year), 1);
         let compound = {};
         let savings = {};
@@ -119,12 +119,12 @@
 
 <div class="inputs">
     <label for="starting">Starting Assets</label>
-    <input id="starting" bind:value={$total_assets} />
+    <input id="starting" bind:value={$total_assets} type="number" min=0 />
 </div>
 
 <div class="inputs">
     <label for="saving">Monthly Savings</label>
-    <input id="saving" bind:value={$monthly_savings} />
+    <input id="saving" bind:value={$monthly_savings} type="number" min=0 />
 </div>
 
 <div class="inputs">
@@ -134,12 +134,12 @@
 
 <div class="inputs">
     <label for="compound">Expected Return Annually</label>
-    <input id="compound" bind:value={$apr} />
+    <input id="compound" bind:value={$apr} type="number" min=0 />
 </div>
 
 <div class="inputs">
     <label for="inflation">Expected Inflation Annually</label>
-    <input id="inflation" bind:value={$inflation} />
+    <input id="inflation" bind:value={$inflation} type="number" min=0 />
 </div>
 
 

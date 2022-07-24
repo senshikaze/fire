@@ -15,9 +15,9 @@
 
 <h1>FIRE Target</h1>
 <div id="canvas">
-    <div id="innerCanvas" width="{percentComplete}%"></div>
-    <h1 id="canvasPercent">{percentComplete}</h1>
-    <h1 id="canvasTotal">{$total_assets}</h1>
+    <div id="innerCanvas" style="width: {percentComplete}%" ></div>
+    <h1 id="canvasPercent">{percentComplete}%</h1>
+    <h1 id="canvasTotal">{new Intl.NumberFormat('en-US', {style: "currency", currency: "USD"}).format($total_assets)}</h1>
 </div>
 
 <div class="inputs">
